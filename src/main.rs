@@ -51,7 +51,7 @@ fn main() {
             ']' => {
                 end_loop(&mut t, &mut p);
             }
-            _ => continue,
+            _ => {}
         }
         p.pos += 1;
     }
