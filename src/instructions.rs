@@ -40,13 +40,18 @@ pub fn print(t: &mut Tape) {
 }
 
 pub fn input(t: &mut Tape) {
-    // TODO: This needs some error handling. Also need a way of not needing to hit enter to input.
-    // e.g. when a non ascii character is input the output is undefined
+    /*
     t.tape[t.pos] = std::io::stdin()
         .bytes()
         .next()
         .and_then(|res| res.ok())
         .unwrap();
+     */
+
+    // This solution is somewhat less verbose and has at least rudimentary error handling
+    let mut input: [u8; 1] = [0; 1];
+    std::io::stdin().read_exact(&mut input).expect("Error reading input");
+    t.tape[t.pos] = input[0];
 }
 
 pub fn start_loop(t: &mut Tape, p: &mut Program) {

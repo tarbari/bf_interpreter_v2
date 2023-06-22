@@ -7,14 +7,14 @@ mod instructions;
 mod program;
 mod tape;
 
-const TAPE_LEN: usize = 3000;
+const TAPE_LEN: usize = 3000; // Create 3000 bytes to manipulate
 
 fn main() {
     let file_name = parse_args();
     let program = read_file(file_name);
 
     let mut t = Tape {
-        tape: [0; TAPE_LEN], // Create 3000 bytes to manipulate
+        tape: [0; TAPE_LEN],
         pos: 0,
     };
 
